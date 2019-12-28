@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <base href="/">
+    <title>TwitterApp</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/angular-toastr/dist/angular-toastr.css" />
+</head>
+
+<body ng-app="twitterApp">
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">Twitter App</a>
+
+        <form class="form-inline" ng-controller="userFormController">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">@</span>
+                </div>
+                <input type="text" class="form-control" placeholder="First Twitter Username" ng-model="fusername">
+            </div>
+            <div class="input-group" style="margin-left:15px;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">@</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Second Twitter Username" ng-model="susername">
+            </div>
+            <button ng-click="submitForm()" style="margin-left:15px;" class="btn btn-success" type="button">
+                <span class="spinner-border spinner-border-sm" ng-if="isFormSubmitting"></span>
+                Get Mutual Friends
+            </button>
+        </form>
+    </nav>
+
+    <br>
+    <div class="container" ng-controller="friendListController">
+        <h4>Mutual Friends List</h4>
+        <div class="alert alert-info" ng-if="!friendList.length">
+            <strong>Info!</strong> No mutual friends found.
+        </div>
+        <div class="card mb-3" ng-repeat="friend in friendList">
+            <div class="row no-gutters">
+                <div class="col-md-4" style="max-width:100px">
+                    <img ng-src="{{friend.profile_image_url}}" class="card-img" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title" style="margin-bottom: 0px;">{{friend.name}} <br><span
+                                style="font-size: 15px;top: -7px;position: relative;">@{{friend.screen_name}}</span>
+                        </h5>
+                        <p class="card-text">{{friend.description}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://unpkg.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
