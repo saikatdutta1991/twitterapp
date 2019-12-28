@@ -22,7 +22,7 @@ git clone https://github.com/saikatdutta1991/twitterapp.git
 cd twitterapp
 ```
 ###### 3. Rename `.env.sample`to ` .env` . sample env is given at top.
-###### 4.  Delete `package-lock.json` file and `node_modules` folder.
+###### 4.  Delete `package-lock.json` file and `node_modules` folder (if exists both)
 ###### 5.  Run the below command to install node module dependencies.
 ```console
 npm install
