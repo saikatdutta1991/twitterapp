@@ -2,6 +2,9 @@
 # TwitterApp
 Sample nodejs project for #JOB #ASSIGNMENT
 
+### Demo Url: 
+`https://samplenodejstwitterapp.herokuapp.com`
+
 
 ### env sample
 ```javascript
